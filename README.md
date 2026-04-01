@@ -27,20 +27,20 @@ minimalistic solution, others might be implemented in the future.
 ### ⚙️ Installation & Setup
 
 #### 1. Server Setup (Docker)
-Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
-
-1. **Clone the repository:**
-```bash
-git clone https://github.com/stahl-n/ClipX
-cd ClipX
-```
-
-2. **Edit `docker-compose.yml`**
-Make sure, to set a good API key and the BASE_URL in the docker-compose file.
-
-**3. Run the server:**
-```bash
-docker-compose up -d --build
+1. **Create a `docker-compose.yml` file:**
+```yaml
+services:
+  server:
+    image: stahln1/clipx:latest
+    restart: always
+    environment:
+      - BASE_URL=http://localhost:3000         # Change this to your IP/Domain later
+      - AUTH_KEY=your_secure_api_key           # Choose a strong key
+      - DEBUG=false                            # Keep this set to false for production use
+    volumes:
+      - ./uploads:/app/uploads
+    ports:
+      - "3000:3000"
 ```
 
 #### 2. Client Setup (Linux)
