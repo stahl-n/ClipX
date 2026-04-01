@@ -16,7 +16,7 @@ fi
 echo "Watching directory: $WATCH_DIR"
 
 # Watch for files uploaded to the directory and upload them to the server
-inotifywait -m -e close_write --format '%f' "$WATCH_DIR" | while read FILE
+inotifywait -m -e close_write --format '%f' "$WATCH_DIR" | while read -r FILE;
 do
     # Only upload video files
     if [[ "$FILE" == *.mp4 ]] || [[ "$FILE" == *.mkv ]]; then
