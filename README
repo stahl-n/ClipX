@@ -13,3 +13,11 @@ Sharing short clips (e.g., Gaming Clips) should be instant. ClipX automates the 
 - [x] Automated folder watching.
 - [x] Instant upload via CLI.
 - [x] Zero-config HTML5 Video Player.
+
+# 📂 Limitations
+While many of the limitations listed below, are because of the idea of a 
+minimalistic solution, others might be implemented in the future.
+
+- [ ] Only mp4 files can be uploaded.
+- [ ] No support for multiple users.
+- [ ] Password protection is not supported.
