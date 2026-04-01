@@ -1,0 +1,15 @@
+# 🎬 ClipX
+A minimalist, self-hosted media pipeline for gamers. 
+
+### 🚀 Why ClipX?
+Sharing short clips (e.g., Gaming Clips) should be instant. ClipX automates the bridge between your recording software (e.g. OBS) and a private web-link.
+
+### 🛠 Tech Stack
+- **Backend:** Node.js, TypeScript, Fastify
+- **Automation:** Bash + inotify-tools
+- **Containerization:** Docker
+
+### 📦 Features
+- [x] Automated folder watching.
+- [x] Instant upload via CLI.
+- [x] Zero-config HTML5 Video Player.
