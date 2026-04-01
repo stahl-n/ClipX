@@ -12,14 +12,32 @@ import "@fastify/multipart";
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 // Make sure to set your own API key in docker-compose.yml before running the server in production!
 const API_KEY = process.env.API_KEY;
-const pump = promisify(pipeline);
+const DEBUG_MODE = process.env.DEBUG_MODE === 'true' || false;
 
 // This defines, where the uploaded files will be stored on the server. 
 // Do not change, unless you know what you are doing.
 const UPLOADS_PATH = path.join(process.cwd(), 'uploads');
 
+if (!fs.existsSync(UPLOADS_PATH)) {
+    fs.mkdirSync(UPLOADS_PATH);
+}
+if (!API_KEY) {
+    console.warn("Warning: No API key set! Please set the API_KEY environment variable to a strong key to prevent unauthorized uploads. Everyone with this key can upload files to your server!");
+    process.exit(1);
+}
+const pump = promisify(pipeline);
+
 const server = Fastify({
-    logger: true,
+  //Only log if debug mode is enabled
+  // In production, logging is disabled to improve performance and prevent sensitive data from being logged.
+    logger: DEBUG_MODE ? {
+        level: 'info',
+        serializers: {
+            req(request) {
+                return { method: request.method, url: request.url }; // IPs are not logged
+            }
+        }
+    } : false
 });
 
 // Register Plugins

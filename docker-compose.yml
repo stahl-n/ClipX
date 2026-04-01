@@ -9,4 +9,5 @@ services:
     environment:
       - BASE_URL=http://localhost:3000 # Change this to your IP/Domain later
       - API_KEY=your-secret-api-key-please-change-this # Change this to a strong key, everyone with this key can upload files!
+      - DEBUG_MODE=false # Set to true to enable debug logging in the server (not recommended in production)
     restart: unless-stopped
