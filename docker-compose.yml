@@ -1,6 +1,6 @@
 services:
   clipx:
-    build: .
+    server: .
     container_name: clipx-backend
     ports:
       - "3000:3000"
@@ -8,6 +8,6 @@ services:
       - ./uploads:/app/uploads
     environment:
       - BASE_URL=http://localhost:3000 # Change this to your IP/Domain later
-      - API_KEY=test # Change this to a strong key, everyone with this key can upload files!
+      - API_KEY=change_me_to_your_api_key # Change this to a strong key, everyone with this key can upload files!
       - DEBUG_MODE=true # Set to true to enable debug logging in the server (not recommended in production)
     restart: unless-stopped

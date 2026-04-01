@@ -36,7 +36,7 @@ services:
     restart: always
     environment:
       - BASE_URL=http://localhost:3000         # Change this to your IP/Domain
-      - API_KEY=your_secure_api_key            # Set a strong key here
+      - API_KEY=change_me_to_your_api_key       # Set a strong key here
       - DEBUG=false                            # Keep this set to false for production use
     volumes:
       - ./uploads:/app/uploads
