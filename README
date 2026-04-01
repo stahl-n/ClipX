@@ -13,6 +13,7 @@ Sharing short clips (e.g., Gaming Clips) should be instant. ClipX automates the 
 - [x] Automated folder watching.
 - [x] Instant upload via CLI.
 - [x] Zero-config HTML5 Video Player.
+- [x] Automatically copy URL to your clipboard.
 
 # 📂 Limitations
 While many of the limitations listed below, are because of the idea of a 
@@ -21,3 +22,48 @@ minimalistic solution, others might be implemented in the future.
 - [ ] Only mp4 files can be uploaded.
 - [ ] No support for multiple users.
 - [ ] Password protection is not supported.
+- [ ] Only works on Linux.
+
+### ⚙️ Installation & Setup
+
+#### 1. Server Setup (Docker)
+Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/stahl-n/ClipX
+cd ClipX
+```
+
+2. **Edit `docker-compose.yml`**
+Make sure, to set a good API key and the BASE_URL in the docker-compose file.
+
+**3. Run the server:**
+```bash
+docker-compose up -d --build
+```
+
+#### 2. Client Setup (Linux)
+
+1. Copy the `watcher.sh` script into a directory of your choice.
+```bash
+curl -O https://raw.githubusercontent.com/stahl-n/ClipX/main/scripts/watcher.sh
+# or alternatively
+wget https://raw.githubusercontent.com/stahl-n/ClipX/main/scripts/watcher.sh
+``` 
+
+2. Edit the `watcher.sh` file with your preferred text editor.
+- Change the API_KEY to match the API key in your server configuration.
+- Change the API_URL to match the URL of your server.
+- Change the WATCH_DIR to match the directory where you want to watch for new files.
+
+3. Make the `watcher.sh` script executable and run it:
+```bash
+chmod +x watcher.sh
+./watcher.sh
+```
+Tip: Add this script to your "Startup Applications" to start it automatically on boot.
+
+#### 2. Client Setup (Windows)
+As of now, there is no Windows client available for ClipX, but you can create your
+own script for Windows, if you still want to use ClipX.
