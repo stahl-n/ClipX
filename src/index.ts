@@ -126,6 +126,7 @@ server.get('/watch/:clipId', async (request, reply) => {
 const start = async () => {
     try {
         await server.listen({ port: 3000, host: '0.0.0.0' });
+        server.log.info(`Server running at ${BASE_URL}`);
     } catch (err) {
         server.log.error(err);
         process.exit(1);
