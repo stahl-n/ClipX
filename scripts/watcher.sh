@@ -3,7 +3,7 @@
 # ---- Configuration ----
 WATCH_DIR="$HOME/Videos/ClipX/Recordings"
 API_URL="http://localhost:3000/upload"
-API_KEY="test" # Must match the API key in your server configuration (docker-compose.yml environment variable)
+API_KEY="change_me_to_your_api_key" # Must match the API key in your server configuration (docker-compose.yml environment variable)
 # -----------------------
 
 # Check if inotifywait is installed
