@@ -3,7 +3,7 @@
 # ---- Configuration ----
 WATCH_DIR="$HOME/Videos/ClipX/Recordings"
 API_URL="http://localhost:3000/upload"
-AUTH_KEY="your-secret-api-key-please-change-this" # Must match the API key in your server configuration (docker-compose.yml environment variable)
+API_KEY="your-secret-api-key-please-change-this" # Must match the API key in your server configuration (docker-compose.yml environment variable)
 # -----------------------
 
 # Check if inotifywait is installed
@@ -24,7 +24,7 @@ do
         echo "Uploading to $API_URL..."
         
         # Upload to server
-        RESPONSE=$(curl -s -H "x-api-key: $AUTH_KEY" -F "file=@$WATCH_DIR/$FILE" "$API_URL")
+        RESPONSE=$(curl -s -H "x-api-key: $API_KEY" -F "file=@$WATCH_DIR/$FILE" "$API_URL")
         
         # Extract 
         URL=$(echo $RESPONSE | grep -oP '(?<="url":")[^"]*')
