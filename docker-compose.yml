@@ -1,0 +1,12 @@
+services:
+  clipx:
+    build: .
+    container_name: clipx-backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./uploads:/app/uploads
+    environment:
+      - BASE_URL=http://localhost:3000 # Change this to your IP/Domain later
+      - API_KEY=your-secret-api-key-please-change-this # Change this to a strong key, everyone with this key can upload files!
+    restart: unless-stopped
